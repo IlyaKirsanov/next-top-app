@@ -5,20 +5,10 @@ import { format } from "date-fns";
 import { useContext } from "react";
 import { AppContext } from "../../context/app.context";
 import { FirstLevelMenuItem, PageItem } from '../../interface/menu.interface';
-import BooksIcon from './icons/book.svg';
-import ProductsIcon from './icons/box.svg';
-import ServicesIcon from './icons/cloud.svg';
-import CoursesIcon from './icons/hat.svg';
-import { TopLevelCategory } from '../../interface/page.interface';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { firstLevelMenu } from "../../helpers/helpers";
 
-const firstLevelMenu: FirstLevelMenuItem[] = [
-	{ route: 'courses', name: 'Курсы', icon: <CoursesIcon />, id: TopLevelCategory.Courses },
-	{ route: 'services', name: 'Сервисы', icon: <ServicesIcon />, id: TopLevelCategory.Services },
-	{ route: 'books', name: 'Книги', icon: <BooksIcon />, id: TopLevelCategory.Books },
-	{ route: 'products', name: 'Продукты', icon: <ProductsIcon />, id: TopLevelCategory.Products },
-];
 
 export const Menu = (): JSX.Element => {
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
