@@ -3,7 +3,6 @@
 }
 
 .active {
-	font-weight: bold;
 	color: var(--primary);
 }
 
@@ -14,18 +13,23 @@
 
 .sort {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto auto;
 	gap: 40px;
-	cursor: pointer;
 }
 
 .sort span {
+	font-weight: bold;
 	display: grid;
 	grid-template-columns: 20px 1fr;
 	align-items: center;
 	gap: 8px;
+	cursor: pointer;
 }
 
 .sort span:hover {
 	opacity: 0.75;
+}
+
+.sort span:not(.active) {
+	grid-template-columns: 1fr;
 }
