@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Htag, Button, P, Tag, Rating } from '../components'
+import { Htag, Button, P, Tag, Rating, Input } from '../components'
 import { withLayout } from '../layout/Layout'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
@@ -7,12 +7,12 @@ import { MenuItem } from '../interface/menu.interface'
 
 
 function Home({ menu }: HomeProps): JSX.Element {
-	
-	const [ rating, setRating ] = useState<number>(4);
-	
+
+	const [rating, setRating] = useState<number>(4);
+
 	return (
 		<>
-			<Htag tag="h1">{ rating }</Htag>
+			<Htag tag="h1">{rating}</Htag>
 			<Button appearance="primary" arrow="right">Кнопка</Button>
 			<Button appearance="ghost" arrow="down">Кнопка2</Button>
 			<P size="large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam porro soluta consectetur corporis
@@ -25,7 +25,8 @@ function Home({ menu }: HomeProps): JSX.Element {
 			<Tag color="red" size="small" href="#">Medium</Tag>
 			<Tag color="primary" size="medium" href="#">Medium</Tag>
 			<Tag color="green" size="small" href="#">Medium</Tag>
-			<Rating rating={ rating } isEditable setRating={ setRating }/>
+			<Rating rating={rating} isEditable setRating={setRating} />
+			<Input placeholder="Test" />
 		</>
 	);
 }
@@ -36,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const firstCategory = 0
 	const { data: menu } = await axios.post<MenuItem[]>(
 		process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-		{firstCategory});
+		{ firstCategory });
 	return {
 		props: {
 			menu,
@@ -45,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	}
 }
 
-interface HomeProps extends Record<string, unknown>{
+interface HomeProps extends Record<string, unknown> {
 	menu: MenuItem[],
 	firstCategory: number
 }
