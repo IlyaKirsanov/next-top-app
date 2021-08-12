@@ -57,7 +57,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 					<div>{product.disadvantages}</div>
 				</div>}
 			</div>
-			<Devider className={styles.hr} />
+			<Devider className={cn(styles.hr, styles.hr2)} />
 			<div className={styles.actions}>
 				<Button appearance="primary">Узнать больше</Button>
 				<Button appearance="ghost" arrow={`right`} className={styles.reviewBtn}>Читать отзывы</Button>
