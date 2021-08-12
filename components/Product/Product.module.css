@@ -3,6 +3,7 @@
 	grid-template-columns:
 		[start] 70px [logoend] 30px [titlestart] calc(50% - 100px)
 		[middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
+
 	margin-bottom: 30px;
 	padding: 30px;
 }
@@ -23,7 +24,7 @@
 }
 
 .credit,
-.creditTilte {
+.creditTitle {
 	grid-column: creditstart / creditend;
 }
 
@@ -44,70 +45,99 @@
 
 .advBlock {
 	grid-column: middle/end;
+
+	font-size: 16px;
+	line-height: 22px;
 }
 
 .logo img {
 	border-radius: 5px;
 }
 
-.title{
+.title {
+	align-self: flex-end;
+
+	font-size: 20px;
 	font-weight: 600;
+	line-height: 27px;
+}
+
+.price,
+.credit {
+	align-self: flex-end;
+
 	font-size: 20px;
 	line-height: 27px;
+}
+
+.rating {
 	align-self: flex-end;
 }
 
-.price, .credit{
-	font-size: 20px;
-	line-height: 27px;
-	align-self: flex-end;
-}
-
-.rating{
-	align-self: flex-end;
-}
-
-.priceTitle, .creditTilte, .rateTitle, .month{
-	font-weight: 300;
+.priceTitle,
+.creditTitle,
+.rateTitle,
+.month {
 	font-size: 14px;
+	font-weight: 300;
 	line-height: 19px;
 }
 
-.oldPrice{
-	margin: 0px 0px 0px 5px;
+.oldPrice {
+	margin: 0 0 0 5px;
 }
 
-.category{
-	margin: 7px 0px 0px 0px;
+.category {
+	margin: 7px 0 0 0;
 }
 
-.description{
-	font-size:16px;
-	line-height: 24px;
-	margin: 0px 0px 15px 0px;
-}
+.description {
+	margin: 0 0 15px 0;
 
-.reviewBtn{
-	margin: 0px 0px 0px 20px;
-}
-
-.advBlock{
 	font-size: 16px;
-	line-height: 22px;
+	line-height: 24px;
 }
 
-.advTitle{
-	font-weight:500;
-	margin: 0px 0px 5px 0px;
-	
+.reviewBtn {
+	margin: 0 0 0 20px;
 }
 
-.disadvantages{
-border-left: 2px solid var(--red);
-padding: 0px 0px 0px 15px;
-margin: 0px 0px 20px 0px;
+.advTitle {
+	margin: 0 0 5px 0;
+
+	font-weight: 500;
 }
-.advantages{
+
+.disadvantages {
+	margin: 0 0 20px 0;
+	padding: 0 0 0 15px;
+
+	border-left: 2px solid var(--red);
+}
+
+.advantages {
+	padding: 0 0 0 15px;
+
 	border-left: 2px solid var(--green);
-	padding: 0px 0px 0px 15px;
+}
+
+.characteristics {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+
+	padding-right: 60px;
+
+	font-size: 16px;
+	line-height: 32px;
+	gap: 10px;
+}
+
+.characteristicsName {
+	font-weight: bold;
+}
+
+.characteristicsDots {
+	margin-bottom: 5px;
+
+	border-bottom: 1px dashed var(--gray-light);
 }
