@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Review } from "../Review/Review";
+import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { ProductProps } from './Product.props';
 import styles from './Product.module.css';
 import cn from 'classnames';
@@ -81,9 +82,15 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 				[styles.opened]: isReviewOpened,
 				[styles.closed]: !isReviewOpened
 			}) }>
-				{product.reviews.map(r => {
-					return <Review review={r} key={r._id}/>;
-				})}
+				{ product.reviews.map(r => {
+					return (
+						<>
+							<Review review={ r } key={ r._id }/>
+							<Devider/>
+						</>
+					);
+				}) }
+				<ReviewForm productId={product._id}/>
 			</Card>
 		</>
 	
