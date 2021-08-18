@@ -3,8 +3,10 @@ import styles from './Rating.module.css';
 import cn from 'classnames';
 import { useEffect, useState, KeyboardEvent } from 'react';
 import StarIcon from './star.svg';
+import React, { ForwardedRef } from 'react';
 
-export const Rating = ({ rating, setRating, isEditable = false, ...props }: RatingProps): JSX.Element => {
+export const Rating = React.forwardRef(({ error, rating, setRating, isEditable = false, ...props }: RatingProps,
+	ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
@@ -25,7 +27,6 @@ export const Rating = ({ rating, setRating, isEditable = false, ...props }: Rati
 						onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(idx + 1, e)}
 					/>
 				</span>
-
 			);
 		});
 		setRatingArray(updatedArray);
@@ -48,14 +49,17 @@ export const Rating = ({ rating, setRating, isEditable = false, ...props }: Rati
 
 	useEffect(() => {
 		constructRating(rating);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [rating]);
 
 	return (
-		<div {...props}>
+		<div {...props} ref={ref} className={cn(styles.ratingWrapper, {
+			[styles.error]: error
+		})}>
 			{ratingArray.map((ratingStar, i) => {
 				return <span key={i}>{ratingStar}</span>;
 			})}
+			{error && <span className={styles.errorMessage}>{error.message}</span>}
 		</div>
 	);
-};
+});
