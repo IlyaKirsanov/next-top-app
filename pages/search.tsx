@@ -1,4 +1,4 @@
-import { withLayout } from "../../layout/Layout";
+import { withLayout } from "../layout/Layout";
 
 function Search(): JSX.Element {
 	return (

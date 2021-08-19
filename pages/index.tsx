@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Htag, Button, P, Tag, Rating, Input ,TextArea} from '../components'
+import { Htag, Button, P, Tag, Rating, Input, TextArea } from '../components'
 import { withLayout } from '../layout/Layout'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { MenuItem } from '../interface/menu.interface'
+import { API } from '../helpers/api'
 
 
 function Home({ menu }: HomeProps): JSX.Element {
@@ -37,7 +38,7 @@ export default withLayout(Home);
 export const getStaticProps: GetStaticProps = async () => {
 	const firstCategory = 0
 	const { data: menu } = await axios.post<MenuItem[]>(
-		process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
+		API.topPage.find,
 		{ firstCategory });
 	return {
 		props: {
