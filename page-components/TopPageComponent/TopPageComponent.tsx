@@ -5,9 +5,12 @@ import { TopLevelCategory } from '../../interface/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import React, { useReducer, useEffect} from 'react';
 import { sortReducer } from '../../components/Sort/sort.reducer';
+import { useScrollY } from "../../hooks/useScrollY";
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
 	const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
+
+	const y = useScrollY();
 
 	const setSort = (sort: SortEnum) => {
 		dispatchSort({ type: sort });
