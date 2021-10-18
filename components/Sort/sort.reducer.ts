@@ -1,7 +1,9 @@
 import { SortEnum } from "./Sort.props";
 import { ProductModel } from "../../interface/product.interface";
 
-export type SortActions = { type: SortEnum.Price } | { type: SortEnum.Rating } | {type: 'reset' , initialState: ProductModel[]};
+export type SortActions = { type: SortEnum.Price }
+	| { type: SortEnum.Rating }
+	| { type: 'reset' , initialState: ProductModel[] };
 
 export interface SortReducerState {
 	sort: SortEnum;

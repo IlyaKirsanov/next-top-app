@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef, ForwardedRef } from "react";
 import { Review } from "../Review/Review";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { ProductProps } from './Product.props';
@@ -11,8 +11,9 @@ import { Button } from '../Button/Button';
 import { Devider } from '../Devider/Devider';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
+export const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 
@@ -27,7 +28,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 	};
 
 	return (
-		<div className={className} {...props}>
+		<div className={className} {...props} ref={ref}>
 			<Card className={styles.product}>
 				<div className={styles.logo}>
 					<Image
@@ -36,7 +37,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 						width={70}
 						height={70}
 					// layout='responsive'
-					// objectFit="cover" 
+					// objectFit="cover"
 					/>
 				</div>
 				<div className={styles.title}>{product.title}</div>
@@ -105,4 +106,4 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 		</div>
 
 	);
-};
+}));
