@@ -1,4 +1,4 @@
-import { useState, useRef, forwardRef, ForwardedRef } from "react";
+import { useState, useRef } from "react";
 import { Review } from "../Review/Review";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { ProductProps } from './Product.props';

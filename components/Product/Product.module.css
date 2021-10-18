@@ -21,6 +21,7 @@
 .price,
 .priceTitle {
 	grid-column: pricestart / priceend;
+
 	white-space: nowrap;
 }
 
@@ -32,6 +33,7 @@
 .rating,
 .rateTitle {
 	grid-column: ratestart/ end;
+
 	white-space: nowrap;
 }
 
@@ -146,6 +148,7 @@
 
 .closed {
 	overflow: hidden;
+
 	max-height: 0;
 	padding: 0;
 }
@@ -156,7 +159,7 @@
 }
 
 .reviews {
-	/*margin-top: 30px;*/
+	/* margin-top: 30px; */
 }
 
 .rateTitle a {
@@ -191,6 +194,7 @@
 
 	.tags {
 		grid-area: tags;
+
 		margin-bottom: 20px;
 	}
 

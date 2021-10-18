@@ -1,5 +1,8 @@
-export enum TopLevelCategory{
-	Courses, Services, Books, Products
+export enum TopLevelCategory {
+	Courses,
+	Services,
+	Books,
+	Products,
 }
 
 export interface TopPageModel {

@@ -8,6 +8,7 @@
 
 .active .sortIcon {
 	display: block;
+
 	margin-right: 8px;
 }
 
@@ -18,12 +19,14 @@
 }
 
 .sort span {
-	font-weight: bold;
 	display: grid;
-	grid-template-columns: 20px 1fr;
 	align-items: center;
-	gap: 8px;
+
 	cursor: pointer;
+
+	font-weight: bold;
+	grid-template-columns: 20px 1fr;
+	gap: 8px;
 }
 
 .sort span:hover {

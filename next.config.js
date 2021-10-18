@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-undef
 module.exports = {
 	images: {
-		domains: ['courses-top.ru']
+		domains: ["courses-top.ru"],
 	},
 	webpack(config) {
 		config.module.rules.push({
@@ -8,9 +9,9 @@ module.exports = {
 			issuer: {
 				test: /\.(js|ts)x?$/,
 			},
-			use: ['@svgr/webpack'],
+			use: ["@svgr/webpack"],
 		});
 
 		return config;
 	},
-};
+}
