@@ -1,7 +1,14 @@
 import { HeaderProps } from "./Header.props";
-// import styles from './Header.module.css';
-// import cn from 'classnames';
+import cn from "classnames";
+import styles from './Header.module.css';
+import Logo from '../../public/icons/logo.svg';
+import { ButtonIcon } from "../../components/ButtonIcon/ButtonIcon";
 
-export const Header = ({ ...props }: HeaderProps): JSX.Element => {
-	return <div {...props}>Header</div>;
+export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
+	return (
+		<header className={cn(className, styles.header)} {...props}>
+			<Logo />
+			<ButtonIcon icon="menu" appearance="white"/>
+		</header>
+	);
 };
