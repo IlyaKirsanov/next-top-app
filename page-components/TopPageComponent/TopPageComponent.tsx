@@ -20,7 +20,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 		dispatchSort({type: 'reset', initialState: products});
 	}, [products]);
 
-	return (
+	return (page ?
 		<div className={styles.wrapper}>
 			<div className={styles.title}>
 				<Htag tag='h1'>{page && page.title}</Htag>
@@ -43,6 +43,6 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 			{page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />}
 			<Htag tag='h2'>Получаемые навыки</Htag>
 			{page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
-		</div>
-	);
+		</div> : <div/>
+		);
 };
