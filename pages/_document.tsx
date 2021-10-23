@@ -18,9 +18,7 @@ class MyDocument extends Document {
 	render(): JSX.Element {
 		return (
 			<Html lang="ru">
-				<Head>
-					<title>Next Top App</title>
-				</Head>
+				<Head/>
 				<body>
 					<Main />
 					<NextScript />

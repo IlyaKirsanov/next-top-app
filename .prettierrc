@@ -1,5 +1,5 @@
 {
 	"tabWidth": 1,
 	"useTabs": true,
-	"semi": false,
+	"semi": true
 }
